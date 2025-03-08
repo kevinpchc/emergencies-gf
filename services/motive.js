@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
       overlay.style.display = 'none';
   
       if (result.success) {
-        alert(`Recomendación de Gemini AI: ${result.geminiResponse}`);
+    //    alert(`Recomendación de Gemini AI: ${result.geminiResponse}`);
   
         // Mostrar el botón de descarga
         hiddenSubmitButton.style.display = 'none';
@@ -199,7 +199,7 @@ function generatePDF(nombrePaciente, respuestaIA, formData) {
       { text: 'Autorizaciones y Consentimientos:', style: 'subheader' },
       { text: `Consentimiento para Tratamiento: ${formData.consentimiento ? 'Sí' : 'No'}`, style: 'body' },
       { text: `Autorización para Compartir Información: ${formData.autorizacion ? 'Sí' : 'No'}`, style: 'body' },
-      { text: 'Recomendación de Gemini AI:', style: 'subheader' },
+      { text: 'Recomendación de IA:', style: 'subheader' },
       { text: respuestaIA, style: 'body' },
       { text: ' ', margin: [0, 20] }, // Espacio en blanco
       {

@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Mostrar el cargador y el overlay
       loader.style.display = 'flex';
       overlay.style.display = 'block';
-
+  
       // Enviar los datos del formulario al backend
       const response = await fetch('https://emergencies-gf.onrender.com/submit-emergency', {
         method: 'POST',
@@ -123,23 +123,23 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         body: JSON.stringify(data),
       });
-
+  
       const result = await response.json();
-      
+  
       // Ocultar el cargador y el overlay
       loader.style.display = 'none';
       overlay.style.display = 'none';
-
+  
       if (result.success) {
         alert(`Recomendación de Gemini AI: ${result.geminiResponse}`);
-        
+  
         // Mostrar el botón de descarga
         hiddenSubmitButton.style.display = 'none';
         downloadPdfButton.style.display = 'block';
-
+  
         // Asignar la función de descarga del PDF al botón
         downloadPdfButton.onclick = () => {
-          generatePDF(data.nombre, result.geminiResponse);
+          generatePDF(data.nombre, result.geminiResponse, data); // Pasar todos los datos del formulario
           emergencyForm.reset();
           hiddenSubmitButton.style.display = 'block';
           downloadPdfButton.style.display = 'none';
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
       console.error('Error al enviar los datos a la IA:', error);
       alert('Error al enviar los datos a la IA');
-      
+  
       // Ocultar el cargador y el overlay en caso de error
       loader.style.display = 'none';
       overlay.style.display = 'none';
@@ -164,16 +164,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Función para generar y descargar el PDF
-function generatePDF(nombrePaciente, respuestaIA) {
+function generatePDF(nombrePaciente, respuestaIA, formData) {
   console.log('Generando PDF para:', nombrePaciente);
   console.log('Respuesta de la IA:', respuestaIA);
 
+  // Crear el contenido del PDF con todos los datos del formulario
   const docDefinition = {
     content: [
       { text: 'Informe de Emergencia', style: 'header' },
       { text: `Paciente: ${nombrePaciente}`, style: 'subheader' },
+      { text: 'Datos del Paciente:', style: 'subheader' },
+      { text: `Nombre: ${formData.nombre}`, style: 'body' },
+      { text: `Fecha de Nacimiento: ${formData.fechaNacimiento}`, style: 'body' },
+      { text: `Identificación: ${formData.identificacion}`, style: 'body' },
+      { text: `Dirección: ${formData.direccion}`, style: 'body' },
+      { text: `Teléfono: ${formData.telefono}`, style: 'body' },
+      { text: `Email: ${formData.email}`, style: 'body' },
+      { text: 'Contacto de Emergencia:', style: 'subheader' },
+      { text: `Nombre: ${formData.contactoNombre}`, style: 'body' },
+      { text: `Relación: ${formData.contactoRelacion}`, style: 'body' },
+      { text: `Teléfono: ${formData.contactoTelefono}`, style: 'body' },
+      { text: 'Detalles de la Emergencia:', style: 'subheader' },
+      { text: `Fecha y Hora: ${formData.fechaEmergencia}`, style: 'body' },
+      { text: `Descripción: ${formData.descripcion}`, style: 'body' },
+      { text: `Duración: ${formData.duracion}`, style: 'body' },
+      { text: `Gravedad: ${formData.gravedad}`, style: 'body' },
+      { text: `Localización: ${formData.localizacion}`, style: 'body' },
+      { text: 'Historial Médico:', style: 'subheader' },
+      { text: `Alergias: ${formData.alergias}`, style: 'body' },
+      { text: `Medicamentos: ${formData.medicamentos}`, style: 'body' },
+      { text: `Condiciones Médicas: ${formData.condiciones}`, style: 'body' },
+      { text: `Cirugías Previas: ${formData.cirugias}`, style: 'body' },
+      { text: `Hospitalizaciones: ${formData.hospitalizaciones}`, style: 'body' },
+      { text: 'Autorizaciones y Consentimientos:', style: 'subheader' },
+      { text: `Consentimiento para Tratamiento: ${formData.consentimiento ? 'Sí' : 'No'}`, style: 'body' },
+      { text: `Autorización para Compartir Información: ${formData.autorizacion ? 'Sí' : 'No'}`, style: 'body' },
       { text: 'Recomendación de Gemini AI:', style: 'subheader' },
-      { text: `Paciente: ${data.alergias}`, style: 'subheader' },
       { text: respuestaIA, style: 'body' },
       { text: ' ', margin: [0, 20] }, // Espacio en blanco
       {

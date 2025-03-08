@@ -1,0 +1,684 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F8F9FD;
+  color: #333;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F8F9FD;
+  padding: 20px;
+  border-bottom: 2px solid rgb(16, 137, 211);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+}
+
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+nav button {
+  padding: 15px;
+  text-align: center;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 18px;
+  border: 2px solid rgb(16, 137, 211);
+}
+
+nav button:hover {
+  background-color: #E0F7FA;
+}
+
+main {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F8F9FD;
+}
+
+main a {
+  text-decoration: none;
+  color: rgb(16, 137, 211);
+}
+
+.featuresindex {
+  background-color: #F8F9FD;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1024px;
+  width: 100%;
+}
+
+.featureindex {
+  max-width: 250px;
+  height: 155px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  background: white;
+}
+
+.featureindex:hover {
+  background-color: #E0F7FA;
+}
+
+.featureindex h3 {
+  font-size: 20px;
+  color: rgb(16, 137, 211);
+}
+
+.featureindex p {
+  font-size: 16px;
+  color: #333;
+}
+
+.featureindex img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.featureshistory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featurehistory {
+  max-width: 950px;
+  width: auto;
+  padding: 20px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  background-color: #F8F9FD;
+  margin-bottom: 100px;
+}
+
+.featurehistory h3 {
+  margin-bottom: 15px;
+  color: rgb(16, 137, 211);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #F8F9FD;
+  color: rgb(16, 137, 211);
+  text-align: center;
+  padding: 10px 0;
+  border-top: 2px solid rgb(16, 137, 211);
+}
+
+.change-password-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  background-color: #F8F9FD;
+}
+
+.change-password-container h2 {
+  margin-bottom: 15px;
+  color: rgb(16, 137, 211);
+}
+
+.change-password-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-password-container input[type="password"],
+.change-password-container input[type="submit"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.change-password-container input[type="submit"] {
+  text-align: center;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(16, 137, 211);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.change-password-container input[type="submit"]:hover {
+  background-color: #12B1D1;
+}
+
+#consulta-form {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#consulta-form select,
+#consulta-form input,
+#consulta-form button {
+  padding: 6px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  background-color: white;
+}
+
+#consulta-form button {
+  padding: 15px;
+  text-align: center;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(16, 137, 211);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#consulta-form button:hover {
+  background-color: #12B1D1;
+}
+
+#resultado-consulta {
+  margin: 20px;
+  padding: 10px;
+  height: 100px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.botones-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.botones-acciones button {
+  text-align: center;
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(16, 137, 211);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.botones-acciones button:hover {
+  background-color: #12B1D1;
+}
+
+/* Estilos nuevos para el formulario */
+#emergencyForm {
+  max-width: 1200px; /* Aumentado el ancho máximo */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #F8F9FD;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#emergencyForm fieldset {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 8px;
+  background-color: white;
+}
+
+#emergencyForm fieldset legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rgb(16, 137, 211);
+  padding: 0 10px;
+}
+
+#emergencyForm .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#emergencyForm .form-row label {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+#emergencyForm .form-row input,
+#emergencyForm .form-row select,
+#emergencyForm .form-row textarea {
+  padding: 7px; /* Reducido el padding */
+  border: 2px solid rgb(16, 137, 211);
+  border-radius: 4px;
+  font-size: 0.85em; /* Reducido el tamaño de la fuente */
+  background-color: white;
+}
+
+#emergencyForm .form-row textarea {
+  resize: vertical;
+}
+
+#emergencyForm .form-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas */
+  gap: 12px; /* Reducido el espacio entre los campos */
+}
+
+.botones-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.botones-acciones button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(16, 137, 211);
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.botones-acciones button:hover {
+  background-color: #12B1D1;
+}
+
+#downloadPdfButton {
+  background-color: #28a745;
+}
+
+#downloadPdfButton:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  #emergencyForm .form-columns {
+      grid-template-columns: 1fr; /* En móvil, una sola columna */
+  }
+
+  .botones-acciones {
+      flex-direction: column;
+      align-items: flex-end;
+  }
+}
+
+/* inicio css login */
+.container {
+  max-width: 350px;
+  background: #F8F9FD;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+  border-radius: 20px;
+  padding: 25px 35px;
+  border: 2px solid rgb(16, 137, 211);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+  margin: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.form .input {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: #cff0ff 0px 10px 10px -5px;
+  border-inline: 2px solid transparent;
+  box-sizing: border-box; /* Añade esta línea */
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid #12B1D1;
+}
+
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.form .forgot-password a {
+  font-size: 11px;
+  color: #0099ff;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box; /* Añade esta línea */
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+.loginpequeño {
+  margin-top: 25px;
+}
+
+.loginpequeño .title {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  color: rgb(170, 170, 170);
+}
+
+.agreement {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.agreement a {
+  text-decoration: none;
+  color: #004777;
+  font-size: 10px;
+}
+
+/*fin css login*/
+
+/* inicio cards lobby */
+/* From Uiverse.io by abrahamcalsin */
+.card-client {
+  background: rgb(255, 255, 255);
+  width: 13rem;
+  margin: 0 2rem;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 4px solid rgb(16, 137, 211);
+  box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+  border-radius: 10px;
+  text-align: center;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.card-client p {
+  color: rgb(0, 0, 0);
+}
+
+.card-client:hover {
+  transform: translateY(-10px);
+}
+
+.user-picture {
+  overflow: hidden;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid rgb(16, 137, 211);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.user-picture svg {
+  width: 2.5rem;
+
+}
+
+.name-client {
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.social-media:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: rgb(16, 137, 211);
+}
+
+.social-media a {
+  position: relative;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-media a:last-child {
+  margin-right: 0;
+}
+
+.social-media a svg {
+  width: 1.1rem;
+  fill: currentColor;
+}
+
+/*-- Tooltip Social Media --*/
+.tooltip-social {
+  background: #262626;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  padding: 0.5rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -90%);
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.tooltip-social:after {
+  content: " ";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  border: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: transparent;
+  transform: translate(-50%, 100%);
+}
+
+.social-media a .tooltip-social:after {
+  border-top-color: #262626;
+}
+
+.social-media a:hover .tooltip-social {
+  opacity: 1;
+  transform: translate(-50%, -130%);
+}
+/*final cards lobby*/
+
+/* Overlay styles */
+.dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  display: none;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #b3d4fc;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.3s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.1s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #6793fb;
+    box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+}
+
+/* Overlay styles */
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+/* Modal styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1002; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 300px;
+  text-align: center;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}

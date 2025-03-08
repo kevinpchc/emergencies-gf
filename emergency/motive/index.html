@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motivo</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,0&icon_names=app_registration"
+    />
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <link rel="icon" href="/emergency/img/icon.png">
+    <script type="module" src="/services/login.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Emergencias GF</h1>
+      <nav>
+        <button onclick="window.location.href='../index.html'">Inicio</button>
+        <button onclick="window.location.href='../motive/index.html'">
+          Motivo
+        </button>
+        <button id="cierrasesion">Salir</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="featureshistory">
+        <div class="featurehistory">
+          <form id="emergencyForm">
+            <!-- Información Personal del Paciente -->
+            <fieldset>
+              <legend>Información Personal del Paciente</legend>
+              <div class="form-columns">
+                <div class="form-row">
+                  <label for="nombre">Nombre Completo:</label>
+                  <input type="text" id="nombre" name="nombre" required />
+                </div>
+                <div class="form-row">
+                  <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                  <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required />
+                </div>
+                <div class="form-row">
+                  <label for="identificacion">Número de Identificación:</label>
+                  <input type="text" id="identificacion" name="identificacion" required />
+                </div>
+                <div class="form-row">
+                  <label for="direccion">Dirección:</label>
+                  <input type="text" id="direccion" name="direccion" required />
+                </div>
+                <div class="form-row">
+                  <label for="telefono">Teléfono de Contacto:</label>
+                  <input type="tel" id="telefono" name="telefono" required />
+                </div>
+                <div class="form-row">
+                  <label for="email">Correo Electrónico:</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+            </fieldset>
+          
+            <!-- Información de Contacto de Emergencia -->
+            <fieldset>
+              <legend>Información de Contacto de Emergencia</legend>
+              <div class="form-columns">
+                <div class="form-row">
+                  <label for="contacto-nombre">Nombre del Contacto:</label>
+                  <input type="text" id="contacto-nombre" name="contacto-nombre" required />
+                </div>
+                <div class="form-row">
+                  <label for="contacto-relacion">Relación con el Paciente:</label>
+                  <input type="text" id="contacto-relacion" name="contacto-relacion" required />
+                </div>
+                <div class="form-row">
+                  <label for="contacto-telefono">Teléfono de Contacto:</label>
+                  <input type="tel" id="contacto-telefono" name="contacto-telefono" required />
+                </div>
+              </div>
+            </fieldset>
+          
+            <!-- Detalles de la Emergencia -->
+            <fieldset>
+              <legend>Detalles de la Emergencia</legend>
+              <div class="form-columns">
+                <div class="form-row">
+                  <label for="fecha-emergencia">Fecha y Hora de la Emergencia:</label>
+                  <input type="datetime-local" id="fecha-emergencia" name="fecha-emergencia" required />
+                </div>
+                <div class="form-row">
+                  <label for="descripcion">Descripción del Problema:</label>
+                  <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="duracion">Duración de los Síntomas:</label>
+                  <input type="text" id="duracion" name="duracion" required />
+                </div>
+                <div class="form-row">
+                  <label for="gravedad">Gravedad de los Síntomas:</label>
+                  <select id="gravedad" name="gravedad" required>
+                    <option value="leve">Leve</option>
+                    <option value="moderada">Moderada</option>
+                    <option value="severa">Severa</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="localizacion">Localización del Dolor/Síntoma:</label>
+                  <input type="text" id="localizacion" name="localizacion" />
+                </div>
+              </div>
+            </fieldset>
+          
+            <!-- Historial Médico -->
+            <fieldset>
+              <legend>Historial Médico</legend>
+              <div class="form-columns">
+                <div class="form-row">
+                  <label for="alergias">Alergias Conocidas:</label>
+                  <input type="text" id="alergias" name="alergias" />
+                </div>
+                <div class="form-row">
+                  <label for="medicamentos">Medicamentos Actuales:</label>
+                  <input type="text" id="medicamentos" name="medicamentos" />
+                </div>
+                <div class="form-row">
+                  <label for="condiciones">Condiciones Médicas Preexistentes:</label>
+                  <input type="text" id="condiciones" name="condiciones" />
+                </div>
+                <div class="form-row">
+                  <label for="cirugias">Cirugías Previas:</label>
+                  <input type="text" id="cirugias" name="cirugias" />
+                </div>
+                <div class="form-row">
+                  <label for="hospitalizaciones">Historial de Hospitalizaciones:</label>
+                  <input type="text" id="hospitalizaciones" name="hospitalizaciones" />
+                </div>
+              </div>
+            </fieldset>
+          
+           
+          
+            <!-- Autorizaciones y Consentimientos -->
+            <fieldset>
+              <legend>Autorizaciones y Consentimientos</legend>
+              <div class="form-row">
+                <label for="consentimiento">
+                  <input type="checkbox" id="consentimiento" name="consentimiento" required />
+                  Consentimiento para Tratamiento
+                </label>
+              </div>
+              <div class="form-row">
+                <label for="autorizacion">
+                  <input type="checkbox" id="autorizacion" name="autorizacion" />
+                  Autorización para Compartir Información Médica
+                </label>
+              </div>
+            </fieldset>
+          
+            <!-- Botones -->
+            <div class="botones-acciones">
+
+              <button id="hiddenSubmitButton" type="submit" style="display: block">Registrar Emergencia</button>
+            </div>
+          </form>
+          <div class="botones-acciones">
+            <button id="downloadPdfButton" style="display: none">
+              Descargar PDF
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Grupo Fastmed. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="/services/motive.js"></script>
+    <section id="loader" class="dots-container">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </section>
+    <div id="overlay" class="overlay"></div>
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <p>Motivo registrado correctamente</p>
+        <button id="continueButton">Enviar a IA</button>
+      </div>
+    </div>
+
+    <div id="geminiModal" class="modal">
+      <div class="modal-content">
+        <p id="geminiResponseText"></p>
+        <button id="geminiContinueButton">Continuar</button>
+      </div>
+    </div>
+  </body>
+</html>

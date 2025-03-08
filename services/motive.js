@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function generatePDF(nombrePaciente, respuestaIA) {
   console.log('Generando PDF para:', nombrePaciente);
   console.log('Respuesta de la IA:', respuestaIA);
-
+  console.log('Respuesta de la IA:', data.alergias);
   const docDefinition = {
     content: [
       { text: 'Informe de Emergencia', style: 'header' },

@@ -168,39 +168,50 @@ function generatePDF(nombrePaciente, respuestaIA, formData) {
   console.log('Generando PDF para:', nombrePaciente);
   console.log('Respuesta de la IA:', respuestaIA);
 
+  // Función para convertir Markdown a formato pdfmake
+  function convertMarkdownToPdfMake(text) {
+    // Eliminar los ** y aplicar negrita
+    return text.split('**').map((part, index) => {
+      return index % 2 === 1 ? { text: part, bold: true } : part;
+    });
+  }
+
+  // Convertir la respuesta de la IA
+  const respuestaIAFormateada = convertMarkdownToPdfMake(respuestaIA);
+
   // Crear el contenido del PDF con todos los datos del formulario
   const docDefinition = {
     content: [
       { text: 'Informe de Emergencia', style: 'header' },
       { text: `Paciente: ${nombrePaciente}`, style: 'subheader' },
       { text: 'Datos del Paciente:', style: 'subheader' },
-      { text: `Nombre: ${formData.nombre}`, style: 'body' },
-      { text: `Fecha de Nacimiento: ${formData.fechaNacimiento}`, style: 'body' },
-      { text: `Identificación: ${formData.identificacion}`, style: 'body' },
-      { text: `Dirección: ${formData.direccion}`, style: 'body' },
-      { text: `Teléfono: ${formData.telefono}`, style: 'body' },
-      { text: `Email: ${formData.email}`, style: 'body' },
+      { text: [{ text: 'Nombre: ', bold: true }, formData.nombre], style: 'body' },
+      { text: [{ text: 'Fecha de Nacimiento: ', bold: true }, formData.fechaNacimiento], style: 'body' },
+      { text: [{ text: 'Identificación: ', bold: true }, formData.identificacion], style: 'body' },
+      { text: [{ text: 'Dirección: ', bold: true }, formData.direccion], style: 'body' },
+      { text: [{ text: 'Teléfono: ', bold: true }, formData.telefono], style: 'body' },
+      { text: [{ text: 'Email: ', bold: true }, formData.email], style: 'body' },
       { text: 'Contacto de Emergencia:', style: 'subheader' },
-      { text: `Nombre: ${formData.contactoNombre}`, style: 'body' },
-      { text: `Relación: ${formData.contactoRelacion}`, style: 'body' },
-      { text: `Teléfono: ${formData.contactoTelefono}`, style: 'body' },
+      { text: [{ text: 'Nombre: ', bold: true }, formData.contactoNombre], style: 'body' },
+      { text: [{ text: 'Relación: ', bold: true }, formData.contactoRelacion], style: 'body' },
+      { text: [{ text: 'Teléfono: ', bold: true }, formData.contactoTelefono], style: 'body' },
       { text: 'Detalles de la Emergencia:', style: 'subheader' },
-      { text: `Fecha y Hora: ${formData.fechaEmergencia}`, style: 'body' },
-      { text: `Descripción: ${formData.descripcion}`, style: 'body' },
-      { text: `Duración: ${formData.duracion}`, style: 'body' },
-      { text: `Gravedad: ${formData.gravedad}`, style: 'body' },
-      { text: `Localización: ${formData.localizacion}`, style: 'body' },
+      { text: [{ text: 'Fecha y Hora: ', bold: true }, formData.fechaEmergencia], style: 'body' },
+      { text: [{ text: 'Descripción: ', bold: true }, formData.descripcion], style: 'body' },
+      { text: [{ text: 'Duración: ', bold: true }, formData.duracion], style: 'body' },
+      { text: [{ text: 'Gravedad: ', bold: true }, formData.gravedad], style: 'body' },
+      { text: [{ text: 'Localización: ', bold: true }, formData.localizacion], style: 'body' },
       { text: 'Historial Médico:', style: 'subheader' },
-      { text: `Alergias: ${formData.alergias}`, style: 'body' },
-      { text: `Medicamentos: ${formData.medicamentos}`, style: 'body' },
-      { text: `Condiciones Médicas: ${formData.condiciones}`, style: 'body' },
-      { text: `Cirugías Previas: ${formData.cirugias}`, style: 'body' },
-      { text: `Hospitalizaciones: ${formData.hospitalizaciones}`, style: 'body' },
+      { text: [{ text: 'Alergias: ', bold: true }, formData.alergias], style: 'body' },
+      { text: [{ text: 'Medicamentos: ', bold: true }, formData.medicamentos], style: 'body' },
+      { text: [{ text: 'Condiciones Médicas: ', bold: true }, formData.condiciones], style: 'body' },
+      { text: [{ text: 'Cirugías Previas: ', bold: true }, formData.cirugias], style: 'body' },
+      { text: [{ text: 'Hospitalizaciones: ', bold: true }, formData.hospitalizaciones], style: 'body' },
       { text: 'Autorizaciones y Consentimientos:', style: 'subheader' },
-      { text: `Consentimiento para Tratamiento: ${formData.consentimiento ? 'Sí' : 'No'}`, style: 'body' },
-      { text: `Autorización para Compartir Información: ${formData.autorizacion ? 'Sí' : 'No'}`, style: 'body' },
-      { text: 'Recomendación de IA:', style: 'subheader' },
-      { text: respuestaIA, style: 'body' },
+      { text: [{ text: 'Consentimiento para Tratamiento: ', bold: true }, formData.consentimiento ? 'Sí' : 'No'], style: 'body' },
+      { text: [{ text: 'Autorización para Compartir Información: ', bold: true }, formData.autorizacion ? 'Sí' : 'No'], style: 'body' },
+      { text: 'Recomendación de Gemini AI:', style: 'subheader' },
+      { text: respuestaIAFormateada, style: 'body' }, // Usar la respuesta formateada
       { text: ' ', margin: [0, 20] }, // Espacio en blanco
       {
         text: 'Firma y sello del médico:',

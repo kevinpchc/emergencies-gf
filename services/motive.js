@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
       overlay.style.display = 'block';
 
       // Enviar los datos del formulario al backend
-      const response = await fetch('http://localhost:7000/submit-emergency', {
+      const response = await fetch('https://emergencies-gf.onrender.com/submit-emergency', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

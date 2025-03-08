@@ -210,7 +210,7 @@ function generatePDF(nombrePaciente, respuestaIA, formData) {
       { text: 'Autorizaciones y Consentimientos:', style: 'subheader' },
       { text: [{ text: 'Consentimiento para Tratamiento: ', bold: true }, formData.consentimiento ? 'Sí' : 'No'], style: 'body' },
       { text: [{ text: 'Autorización para Compartir Información: ', bold: true }, formData.autorizacion ? 'Sí' : 'No'], style: 'body' },
-      { text: 'Recomendación de Gemini AI:', style: 'subheader' },
+      { text: 'Recomendación de IA:', style: 'subheader' },
       { text: respuestaIAFormateada, style: 'body' }, // Usar la respuesta formateada
       { text: ' ', margin: [0, 20] }, // Espacio en blanco
       {

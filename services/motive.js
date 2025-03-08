@@ -167,12 +167,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function generatePDF(nombrePaciente, respuestaIA) {
   console.log('Generando PDF para:', nombrePaciente);
   console.log('Respuesta de la IA:', respuestaIA);
-  console.log('Respuesta de la IA:', data.alergias);
+
   const docDefinition = {
     content: [
       { text: 'Informe de Emergencia', style: 'header' },
       { text: `Paciente: ${nombrePaciente}`, style: 'subheader' },
       { text: 'Recomendación de Gemini AI:', style: 'subheader' },
+      { text: `Paciente: ${data.alergias}`, style: 'subheader' },
       { text: respuestaIA, style: 'body' },
       { text: ' ', margin: [0, 20] }, // Espacio en blanco
       {

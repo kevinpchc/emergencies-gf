@@ -235,12 +235,12 @@ function generatePDF(nombrePaciente, respuestaIA, formData) {
     ],
     styles: {
       header: {
-        fontSize: 18,
+        fontSize: 20,
         bold: true,
         margin: [0, 0, 0, 10],
       },
       subheader: {
-        fontSize: 14,
+        fontSize: 16,
         bold: true,
         margin: [0, 10, 0, 5],
       },

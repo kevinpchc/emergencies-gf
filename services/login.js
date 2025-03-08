@@ -21,7 +21,7 @@ function logout() {
                 loader.style.display = 'none';
             }
 
-        //    alert('Sesión cerrada correctamente');
+            //    alert('Sesión cerrada correctamente');
             window.location.href = '/index.html';
         })
         .catch((error) => {
@@ -38,10 +38,10 @@ function logout() {
 }
 
 // Asignar la función de cierre de sesión al botón con ID "cierrasesion"
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.getElementById('cierrasesion'); // Selecciona el botón con ID "cierrasesion"
     if (logoutButton) {
-        logoutButton.addEventListener('click', function(event) {
+        logoutButton.addEventListener('click', function (event) {
             event.preventDefault(); // Evita el comportamiento por defecto del botón
             logout(); // Llama a la función de cierre de sesión
         });
@@ -177,7 +177,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             }
 
 
-else {
+            else {
                 // Mostrar un mensaje genérico para otros errores
                 alert('Error al crear el usuario: ' + errorMessage);
             }
